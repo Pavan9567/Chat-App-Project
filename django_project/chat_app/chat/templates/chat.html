@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Left Menu -->
+        <div class="left-menu">
+            <h3>Users</h3>
+            {% for user in users %}
+            <button onClick="startChat('{{ user.username }}')">{{ user.username }}</button>
+            {% endfor %}
+        </div>
+        <!-- Chat Box -->
+        <div class="chat-box">
+            <div id="chat-messages"></div>
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button" onClick="sendMessage">Send</button>
+        </div>
+    </div>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
